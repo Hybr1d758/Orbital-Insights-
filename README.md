@@ -4,7 +4,7 @@ End-to-End Data Pipeline & Analytics Platform for Satellite Data Using Snowflake
 
 
 
-📑 Table of Contents
+# Table of Contents
 Project Overview
 Dataset Description
 Architecture
