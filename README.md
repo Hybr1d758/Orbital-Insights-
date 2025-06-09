@@ -4,34 +4,36 @@ End-to-End Data Pipeline & Analytics Platform for Satellite Data Using Snowflake
 
 
 
-# Table of Contents
-Project Overview
-Dataset Description
-Architecture
-Technologies Used
-Data Ingestion & Storage
-Data Transformation & Cleaning
-Snowflake Setup
-Stored Procedures
-Python Integration
-Data Quality & Validation
-CI/CD Pipeline (Optional)
-Insights & Analysis
-Project Setup Instructions
-Future Enhancements
-Acknowledgements
+## 📑 Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Dataset Description](#dataset-description)
+3. [Architecture](#architecture)
+4. [Technologies Used](#technologies-used)
+5. [Data Ingestion & Storage](#data-ingestion--storage)
+6. [Data Transformation & Cleaning](#data-transformation--cleaning)
+7. [Snowflake Setup](#snowflake-setup)
+8. [Stored Procedures](#stored-procedures)
+9. [Python Integration](#python-integration)
+10. [Data Quality & Validation](#data-quality--validation)
+11. [CI/CD Pipeline (Optional)](#cicd-pipeline-optional)
+12. [Insights & Analysis](#insights--analysis)
+13. [Project Setup Instructions](#project-setup-instructions)
+14. [Future Enhancements](#future-enhancements)
+15. [Acknowledgements](#acknowledgements)
+
 
 
 # 1. Project Overview
-This project aims to build a scalable, end-to-end data pipeline and analytics solution using the UCS Satellite Database. It demonstrates skills in data engineering, Snowflake SQL, stored procedures, Python ETL, data quality validation, and (optionally) CI/CD automation.
+This project aims to build a scalable, end-to-end data pipeline and analytics solution using the UCS Satellite Database. It demonstrates skills in data engineering, Snowflake SQL, stored procedures, Python ETL and data quality validation.
 
 # 2. Dataset Description
-Source: UCS Satellite Database (Excel file)
-Description: Contains satellite metadata including name, country, operator, launch date, orbit class, purpose
+- Source: UCS Satellite Database (Excel file) https://data.world/phalseid/satellite-data
+- Description: Contains satellite metadata including name, country, operator, launch date, orbit class, purpose
+<img width="1277" alt="Screenshot 2025-06-09 at 19 49 57" src="https://github.com/user-attachments/assets/fb75a5f2-c9f0-49d2-96bf-218d0541935a" />
 
 # 3. Architecture
 Data Source → Python ETL → AWS S3 → Snowflake → Stored Procedures → Analytics
-(Optional) GitHub Actions CI/CD for automation
 
 # 4. Technologies Used
 Snowflake: Cloud data warehouse, stored procedures, Snowpark (optional)
