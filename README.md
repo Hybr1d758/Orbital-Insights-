@@ -6,21 +6,21 @@ End-to-End Data Pipeline & Analytics Platform for Satellite Data Using Snowflake
 
 ## 📑 Table of Contents
 
-1. [Project Overview](#project-overview)
-2. [Dataset Description](#dataset-description)
-3. [Architecture](#architecture)
-4. [Technologies Used](#technologies-used)
-5. [Data Ingestion & Storage](#data-ingestion--storage)
-6. [Data Transformation & Cleaning](#data-transformation--cleaning)
-7. [Snowflake Setup](#snowflake-setup)
-8. [Stored Procedures](#stored-procedures)
-9. [Python Integration](#python-integration)
-10. [Data Quality & Validation](#data-quality--validation)
-11. [CI/CD Pipeline (Optional)](#cicd-pipeline-optional)
-12. [Insights & Analysis](#insights--analysis)
-13. [Project Setup Instructions](#project-setup-instructions)
-14. [Future Enhancements](#future-enhancements)
-15. [Acknowledgements](#acknowledgements)
+- [Project Overview](#project-overview)
+- [Dataset Description](#dataset-description)
+- [Architecture](#architecture)
+- [Technologies Used](#technologies-used)
+- [Data Ingestion & Storage](#data-ingestion--storage)
+- [Data Transformation & Cleaning](#data-transformation--cleaning)
+- [Snowflake Setup](#snowflake-setup)
+- [Stored Procedures](#stored-procedures)
+- [Python Integration](#python-integration)
+- [Data Quality & Validation](#data-quality--validation)
+- [CI/CD Pipeline (Optional)](#cicd-pipeline-optional)
+- [Insights & Analysis](#insights--analysis)
+- [Project Setup Instructions](#project-setup-instructions)
+- [Future Enhancements](#future-enhancements)
+- [Acknowledgements](#acknowledgements)
 
 
 
