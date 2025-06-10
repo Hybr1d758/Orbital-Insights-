@@ -46,15 +46,15 @@ Data Source → Python ETL → AWS S3 → Snowflake → Stored Procedures → An
 - Great Expectations: Data validation
 
 # Data Ingestion & Storage
-Parse UCS Satellite Database Excel file using Python
-Store cleaned CSV locally or in AWS S3 bucket
-Snowflake: Create staging tables and define file formats
+- Parse UCS Satellite Database Excel file using Python
+- Store cleaned CSV in AWS S3 bucket
+- Snowflake: Create staging tables and define file formats
 
 # Data Transformation & Cleaning
-Standardize country/operator names
-Parse dates and handle missing values
-Validate numerical fields (mass, lifetime)
-Prepare data for Snowflake ingestion
+- Standardize country/operator names
+- Parse dates and handle missing values
+- Validate numerical fields (mass, lifetime)
+- Prepare data for Snowflake ingestion
 
 # Snowflake Setup
 Create database and schema
@@ -94,17 +94,16 @@ Launch trends over time
 # Project Setup Instructions
 Clone this repository
 Create a Snowflake trial account
-Configure AWS S3 (optional)
+Configure AWS S3 
 Install Python dependencies
 Update connection parameters in config.py
 Run etl_pipeline.py to load data
 Execute stored procedures from Snowsight or Python
 
-# Future Enhancements
-Integrate with real-time satellite tracking APIs
-Add geospatial analysis with Snowflake’s geospatial functions
-Visualize insights with Power BI or Tableau
-Enhance CI/CD pipeline with data validation steps
+# Problems Encountered 
+- pandas did not run because the global environment because of the new update (create a virtual environment to have it resolved)
+
+
 
 # Acknowledgements
 UCS Satellite Database (source data)
