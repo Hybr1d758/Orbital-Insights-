@@ -46,7 +46,15 @@ Data Source → Python ETL → AWS S3 → Snowflake → Stored Procedures → An
 - Great Expectations: Data validation
 
 # Data Ingestion & Storage
-- Parse UCS Satellite Database Excel file using Python
+- Parse UCS Satellite Database Excel file using Python.
+  The file `data_cleaning.py` uses `pandas` and `xlrd` to read and clean the `.xls` data.
+  ## Cleaning Logic
+   - Drop columns with more than 80% nulls
+   - Impute missing values
+   - Standardizes country/operator names
+   - Parses launch dates
+   - Ensures numeric columns (e.g. mass, lifespan) are valid
+
 - Store cleaned CSV in AWS S3 bucket
 - Snowflake: Create staging tables and define file formats
 
