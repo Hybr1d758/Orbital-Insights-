@@ -1,0 +1,66 @@
+import pandas as pd
+
+# Update this path to your actual Excel file
+excel_path = '/Users/edwardjr/Downloads/upwork /Engineering/Orbital-Insights/Orbital-Insights-/UCS_Satellite_Database_7-1-16.xls'
+
+# Load the Excel file
+df = pd.read_excel(excel_path, engine='xlrd')
+
+
+
+# Columns to keep
+columns_to_keep = [
+    'Name of Satellite, Alternate Names',     # Unique identifier
+    'Country of Operator/Owner',              # Who operates it
+    'Operator/Owner',                         # Org/company
+    'Purpose',                                # High-level usage (comm, science, etc.)
+    'Class of Orbit',                         # LEO/MEO/GEO/etc.
+    'Date of Launch',                         # Key for time analysis
+    'Expected Lifetime',                      # Useful for aging/failure models
+    'Launch Mass (kg.)'                       # Mass = tech/capability proxy
+]
+
+
+
+# Filter the DataFrame to include only these columns
+df_filtered = df[columns_to_keep]
+print(df_filtered.columns.tolist())
+
+
+# impute missing values
+for col in ['Country of Operator/Owner', 'Operator/Owner', 'Purpose', 'Class of Orbit']:
+    df_filtered[col].fillna('Unknown', inplace=True)
+
+
+
+# impute a specific date for missing launch dates
+# This is a placeholder; adjust as needed based on the data context
+df_filtered['Date of Launch'].fillna(pd.Timestamp('1900-01-01'), inplace=True)
+
+
+# Clean the 'Expected Lifetime' column
+df_filtered['Expected Lifetime'] = (
+    df_filtered['Expected Lifetime']
+    .astype(str)                        # Ensure it's a string
+    .str.extract(r'(\d+\.?\d*)')        # Extract numeric part
+    .astype(float)                      # Convert to float
+)
+
+# Clean 'Launch Mass (kg.)' by removing commas and '+', then convert to float
+df_filtered['Launch Mass (kg.)'] = (
+    df_filtered['Launch Mass (kg.)']
+    .astype(str)
+    .str.replace(',', '', regex=False)    # remove commas
+    .str.replace('+', '', regex=False)    # remove plus signs
+    .str.extract(r'(\d+\.?\d*)')          # extract numeric part
+    .astype(float)
+)
+
+
+# impute the median for numerical columns
+df_filtered['Expected Lifetime'].fillna(df_filtered['Expected Lifetime'].median(), inplace=True)
+df_filtered['Launch Mass (kg.)'].fillna(df_filtered['Launch Mass (kg.)'].median(), inplace=True)
+
+# print the cleaned DataFrame
+df.to_csv('/Users/edwardjr/Downloads/upwork /Engineering/Orbital-Insights/Orbital-Insights-/cleaned_satellite_data.csv', index=False)
+print("Data cleaning complete. Cleaned data saved to 'cleaned_satellite_data.csv'.")
