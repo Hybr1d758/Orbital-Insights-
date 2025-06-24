@@ -8,34 +8,45 @@ df = pd.read_excel(excel_path, engine='xlrd')
 
 
 
-# Columns to keep
 columns_to_keep = [
-    'Name of Satellite, Alternate Names',     # Unique identifier
-    'Country of Operator/Owner',              # Who operates it
-    'Operator/Owner',                         # Org/company
-    'Purpose',                                # High-level usage (comm, science, etc.)
-    'Class of Orbit',                         # LEO/MEO/GEO/etc.
-    'Date of Launch',                         # Key for time analysis
-    'Expected Lifetime',                      # Useful for aging/failure models
-    'Launch Mass (kg.)'                       # Mass = tech/capability proxy
+    'Name of Satellite, Alternate Names',
+    'Country of Operator/Owner',
+    'Operator/Owner',
+    'Purpose',
+    'Class of Orbit',
+    'Date of Launch',
+    'Expected Lifetime',
+    'Launch Mass (kg.)'
 ]
 
 
 
-# Filter the DataFrame to include only these columns
+# Print the columns to verify they are read correctly
+print(df.columns.tolist())  # Add this line right after reading the file
+
+
 df_filtered = df[columns_to_keep]
-print(df_filtered.columns.tolist())
+
+df_filtered.rename(columns={
+    'Name of Satellite, Alternate Names': 'Satellite Name',
+    'Country of Operator/Owner': 'Country',
+    'Operator/Owner': 'Operator',
+    'Class of Orbit': 'Orbit Class',
+    'Date of Launch': 'Launch Date',
+}, inplace=True)
+print(df_filtered.columns.to_list())
+
 
 
 # impute missing values
-for col in ['Country of Operator/Owner', 'Operator/Owner', 'Purpose', 'Class of Orbit']:
+for col in ['Country', 'Operator', 'Orbit Class']:
     df_filtered[col].fillna('Unknown', inplace=True)
 
 
 
 # impute a specific date for missing launch dates
 # This is a placeholder; adjust as needed based on the data context
-df_filtered['Date of Launch'].fillna(pd.Timestamp('1900-01-01'), inplace=True)
+df_filtered['Launch Date'].fillna(pd.Timestamp('1900-01-01'), inplace=True)
 
 
 # Clean the 'Expected Lifetime' column
@@ -62,5 +73,5 @@ df_filtered['Expected Lifetime'].fillna(df_filtered['Expected Lifetime'].median(
 df_filtered['Launch Mass (kg.)'].fillna(df_filtered['Launch Mass (kg.)'].median(), inplace=True)
 
 # print the cleaned DataFrame
-df.to_csv('/Users/edwardjr/Downloads/upwork /Engineering/Orbital-Insights/Orbital-Insights-/cleaned_satellite_data.csv', index=False)
+df_filtered.to_csv('/Users/edwardjr/Downloads/upwork /Engineering/Orbital-Insights/Orbital-Insights-/cleaned_satellite_data.csv', index=False)
 print("Data cleaning complete. Cleaned data saved to 'cleaned_satellite_data.csv'.")
