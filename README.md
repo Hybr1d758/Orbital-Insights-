@@ -11,7 +11,6 @@ End-to-End Data Pipeline & Analytics Platform for Satellite Data Using Snowflake
 - [Architecture](#architecture)
 - [Technologies Used](#technologies-used)
 - [Data Ingestion & Storage](#data-ingestion--storage)
-- [Data Transformation & Cleaning](#data-transformation--cleaning)
 - [Snowflake Setup](#snowflake-setup)
 - [Stored Procedures](#stored-procedures)
 - [Python Integration](#python-integration)
@@ -19,7 +18,6 @@ End-to-End Data Pipeline & Analytics Platform for Satellite Data Using Snowflake
 - [CI/CD Pipeline (Optional)](#cicd-pipeline-optional)
 - [Insights & Analysis](#insights--analysis)
 - [Project Setup Instructions](#project-setup-instructions)
-- [Future Enhancements](#future-enhancements)
 - [Acknowledgements](#acknowledgements)
 
 
@@ -57,19 +55,20 @@ Data Source → Python ETL → AWS S3 → Snowflake → Stored Procedures → An
    - save the cleaned data in a new csv 'filtered_data_cleaning 
 
 - Store cleaned CSV in AWS S3 bucket
-- Snowflake: Create staging tables and define file formats
+- <img width="1467" alt="Screenshot 2025-07-01 at 04 14 36" src="https://github.com/user-attachments/assets/a2706b38-36e2-4296-8f71-29e425b6ed77" />
 
-# Data Transformation & Cleaning
-- Standardize country/operator names
-- Parse dates and handle missing values
-- Validate numerical fields (mass, lifetime)
-- Prepare data for Snowflake ingestion
 
 # Snowflake Setup
 Create database and schema
 Define table schemas
+<img width="1469" alt="Screenshot 2025-07-01 at 04 16 54" src="https://github.com/user-attachments/assets/f40f46f7-7140-4a68-9e72-64d0b000fbe5" />
+Configure the s3 integration to the snowflake database 
+<img width="1467" alt="Screenshot 2025-07-01 at 04 19 03" src="https://github.com/user-attachments/assets/e7bf8550-dfcb-4805-aef6-0dd694a98275" />
+
 Load data into Snowflake tables
-Configure file formats and stages
+<img width="1470" alt="Screenshot 2025-07-01 at 04 23 58" src="https://github.com/user-attachments/assets/7f9e6b7c-0920-4a61-a2ad-b49cea7dd96d" />
+
+
 
 # Stored Procedures
 satellites_by_country(): Aggregates satellite counts by country
