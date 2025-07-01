@@ -74,6 +74,11 @@ Load data into Snowflake tables
 satellites_by_country(): Aggregates satellite counts by country
 orbit_distribution(): Aggregates satellites by orbit type
 launch_trends(): Year-over-year analysis of satellite launches
+<img width="1470" alt="Screenshot 2025-07-01 at 04 48 06" src="https://github.com/user-attachments/assets/c000f58f-9875-4a0b-baff-de1a33872ba1" />
+to call the stored procedures
+<img width="1467" alt="Screenshot 2025-07-01 at 04 49 54" src="https://github.com/user-attachments/assets/bfca6e45-3ea7-460c-b16d-f78f72db9065" />
+
+
 
 # Python Integration
 Use snowflake-connector-python to:
@@ -85,7 +90,7 @@ Fetch query results
 Null checks
 Data type validations
 Range validations for numerical fields
-(Optional) Implement Great Expectations suite
+Date format crossed checked to meet the snowflake date format
 
 # CI/CD Pipeline (Optional)
 Use GitHub Actions to:
@@ -105,14 +110,15 @@ Create a Snowflake trial account
 Configure AWS S3 
 Install Python dependencies
 Update connection parameters in config.py
-Run etl_pipeline.py to load data
+Run orbital-insights_pipeline.py to load data
 Execute stored procedures from Snowsight or Python
 
 # Problems Encountered 
 - pandas did not run because the global environment because of the new update (create a virtual environment to have it resolved)
-
+- snowflake did not recognise the date '[launch date]' from the cleaned_satellite_data
 
 
 # Acknowledgements
-UCS Satellite Database (source data)
+UCS Satellite Database (https://data.world/phalseid/satellite-data)
 Snowflake community documentation
+Amazon AWS
